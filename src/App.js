@@ -14,7 +14,8 @@ class App extends Component {
       <div style={styles.container}>
         <h1 style={styles.title}>Las tecnologias del Front</h1>
         <ul style={styles.list}>
-        {this.state.list.map((item) => <li>{item}</li> )}
+          {/*el uso del key es muy recomendable, cuando se manejan arreglos en react */}
+        {this.state.list.map((item, index) => <li key={index}>{item}</li> )}
         </ul>
       </div>
     );
