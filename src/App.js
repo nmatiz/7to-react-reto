@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+/// Mostrar una lista en base a un arreglo
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      list: ['Javascript', 'CSS', 'HTLM', 'React']
+    }
+  }
+  render() {
+    return (
+      <div style={styles.container}>
+        <h1 style={styles.title}>Las tecnologias del Front</h1>
+        <ul style={styles.list}>
+        {this.state.list.map((item) => <li>{item}</li> )}
+        </ul>
+      </div>
+    );
+  }
+}
+
+const styles = {
+  container: {
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  title: {
+    marginTop: '100px'
+  },
+  list: {
+    fontSize: '20px',
+    flexGrow: 6
+  }
 }
 
 export default App;
